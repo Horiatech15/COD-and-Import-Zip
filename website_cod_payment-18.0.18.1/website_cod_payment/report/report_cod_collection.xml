@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="report_cod_collection" model="ir.actions.report">
+        <field name="name">COD Collection Report</field>
+        <field name="model">cod.payment.collection</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">website_cod_payment.cod_collection_report</field>    
+        <field name="report_file">website_cod_payment.cod_collection_report</field>
+        <field name="print_report_name">'Collection'</field>
+        <field name="binding_model_id" ref="model_cod_payment_collection"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

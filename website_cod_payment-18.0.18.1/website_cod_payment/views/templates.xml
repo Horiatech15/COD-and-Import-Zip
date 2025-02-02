@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="cod_transaction_status" inherit_id="payment.state_header">
+        <xpath expr="//div[@id='o_payment_status_message']" position="replace">
+            <div t-if="tx.provider_id.sudo().code == 'cod'" id="o_payment_status_message" class="order-3 order-md-1 flex-grow-1">
+                <div class="card flex-grow-1">
+                    <div class="card-body">
+                        <t>$0</t>
+                        <t t-if="tx._get_cod_communication()">
+                            <hr class="w-100"/>
+                            <strong class="mt-auto">Communication: </strong>
+                            <span t-out="tx._get_cod_communication()"/>
+                        </t>
+                    </div>
+                </div>
+            </div>
+            <t t-else="">$0</t>
+        </xpath>
+    </template>
+
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="view_order_form_cod_collection">
+        <field name="name">inherit.view.sale.cod.collection</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/sheet/div/button[@name='action_view_invoice']" position="after">
+                <button name="action_view_collections"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-pencil-square-o"
+                    invisible="collection_count == 0">
+                    <field name="collection_count" widget="statinfo" string="Collections"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+    
+</odoo>

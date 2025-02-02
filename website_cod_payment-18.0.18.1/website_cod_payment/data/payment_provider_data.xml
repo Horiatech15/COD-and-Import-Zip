@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="payment_provider_cod" model="payment.provider">
+        <field name="name">Cash On Delivery</field>
+        <field name="code">cod</field>
+        <field name="state">enabled</field>
+        <field name="company_id" ref="base.main_company"/>
+        <field name="payment_method_ids"
+            eval="[Command.set([
+                ref('website_cod_payment.payment_method_cod'),
+            ])]"
+        />
+        <field name="image_128" type="base64" file="website_cod_payment/static/img/cod.png"/>
+        <field name="redirect_form_view_id" ref="redirect_form"/>
+        <field name="pending_msg">
+            <![CDATA[<p><i>Confirmed</i>,Your order has been successfully processed. Thanks for choosing COD(Collect on Delivery/Cash on Delivery) option. Delivery boy will collect the payment on delivery.</p>]]>
+        </field>
+        <field name="done_msg">
+            <![CDATA[<p><i>Confirmed</i>,Your order has been successfully processed. Thanks for choosing COD(Collect on Delivery/Cash on Delivery) option. Delivery boy will collect the payment on delivery.</p>]]>
+        </field>
+        <field name="cancel_msg">Your order has been cancelled.</field>
+        <field name="is_published">True</field>
+    </record>
+
+</odoo>
